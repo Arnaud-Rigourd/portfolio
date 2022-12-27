@@ -31,7 +31,7 @@ header {
       color: $header-text;
       padding: 0 10px;
       cursor: pointer;
-      transition: color 200ms linear;
+      transition: color 200ms ease;
 
       &:hover {
         color: pink;
@@ -48,7 +48,11 @@ header {
     height: 100%;
     width: 100%;
 
-    h1, h3 {
+    h1 {
+      color: white;
+    }
+
+    h3 {
       color: $header-text;
     }
   }
