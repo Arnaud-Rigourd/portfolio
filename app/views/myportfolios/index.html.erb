@@ -48,9 +48,9 @@
       <% end %>
 -->
       <% @projects.each do |p| %>
-        <%= link_to "#{p.url}", p.url do %>
-          <div class="project">
-            <%= cl_image_path p.photo.key %>
+        <%= link_to "https://#{p.url}", target:"_blank" do %>
+          <div class="project" style="background-image: url('<%= cl_image_path p.photo.key %>')">
+            <p><%= p.title.upcase %></p>
           </div>
         <% end %>
       <% end %>

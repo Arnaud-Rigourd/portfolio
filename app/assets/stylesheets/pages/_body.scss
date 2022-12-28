@@ -33,16 +33,10 @@ main {
     justify-self: center;
     width: 250px;
     height: 250px;
-    background-color: red;
+    background-size: contain;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
-
-
-    &:first-child {
-      background-image: asset-url("laccroche.png");
-      // background-color: green;
-
-    }
   }
 }
