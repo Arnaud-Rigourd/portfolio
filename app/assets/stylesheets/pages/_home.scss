@@ -27,11 +27,12 @@ header {
       display: flex;
     }
 
-    li, p {
+    a, p {
       color: $header-text;
       cursor: pointer;
       padding: 0 10px;
       transition: color 200ms ease;
+      text-decoration: none;
 
       &:hover {
         color: pink;
