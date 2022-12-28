@@ -4,7 +4,7 @@ main {
   display: flex;
   flex-direction: column;
 
-  div {
+  & > div {
     margin: 25px 0;
   }
 
@@ -12,5 +12,37 @@ main {
     font-weight: bold;
     text-align: center;
     text-decoration: underline;
+  }
+}
+
+.container__portfolio {
+
+  & > p {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+  }
+
+  .project {
+    justify-self: center;
+    width: 250px;
+    height: 250px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    &:first-child {
+      background-image: asset-url("laccroche.png");
+      // background-color: green;
+
+    }
   }
 }

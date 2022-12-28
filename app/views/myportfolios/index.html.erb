@@ -2,6 +2,14 @@
   <nav>
     <span>ARNAUD RIGOURD</span>
 
+    <span id="log">
+      <% if user_signed_in? %>
+        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
+      <% else %>
+        <%= link_to "log in", new_user_session_path %>
+      <% end %>
+    </span>
+
     <ul>
       <li>PORTFOLIO</li>
       <li>STACKS</li>
@@ -28,9 +36,12 @@
     <p>Here are some personal and professional projects I’d like to share with you. Looks like the projects’ order is important. What if you find the right order ?</p>
 
     <div class="projects">
-      <div class="project">
+      <%= link_to "www.laccroche.me" do %>
+        <div class="project">
+          <p>L'ACCROCHE</p>
+        </div>
+      <% end %>
 
-      </div>
       <div class="project">
 
       </div>
