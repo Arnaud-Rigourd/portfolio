@@ -1,0 +1,11 @@
+<div class="container__form">
+  <%= simple_form_for(project) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :url %>
+    <%= f.input :description %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
+<%= link_to "back to home", myportfolios_path %>

@@ -53,6 +53,7 @@
             <p><%= p.title.upcase %></p>
           </div>
         <% end %>
+        <p><%= link_to "Edit", edit_project_path(p) if user_signed_in? %></p>
       <% end %>
 
     </div>
