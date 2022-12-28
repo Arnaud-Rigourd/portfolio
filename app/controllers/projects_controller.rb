@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:edit, :update]
+  before_action :set_project, only: [:edit, :update, :destroy]
 
   def new
     @project = Project.new
@@ -24,6 +24,11 @@ class ProjectsController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @project.destroy
+    redirect_to myportfolios_path
   end
 
   private

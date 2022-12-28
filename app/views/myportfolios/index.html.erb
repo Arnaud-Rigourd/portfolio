@@ -53,7 +53,10 @@
             <p><%= p.title.upcase %></p>
           </div>
         <% end %>
-        <p><%= link_to "Edit", edit_project_path(p) if user_signed_in? %></p>
+        <% if user_signed_in? %>
+          <p><%= link_to "Edit", edit_project_path(p) %></p>
+          <p><%= link_to "Delete", project_path(p), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+        <% end %>
       <% end %>
 
     </div>
