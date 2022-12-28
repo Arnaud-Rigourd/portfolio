@@ -27,14 +27,26 @@ header {
       display: flex;
     }
 
-    li, span {
+    li, p {
       color: $header-text;
-      padding: 0 10px;
       cursor: pointer;
+      padding: 0 10px;
       transition: color 200ms ease;
 
       &:hover {
         color: pink;
+      }
+    }
+
+    #log {
+      opacity: 0;
+
+      &:hover {
+        cursor: default;
+      }
+
+      & > a:hover {
+        cursor: default;
       }
     }
   }
