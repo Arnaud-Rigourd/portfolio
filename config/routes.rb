@@ -6,8 +6,7 @@ Rails.application.routes.draw do
 
   root "myportfolios#index"
 
-  resources :myportfolios, only: [:index] do
-    resources :projects, only: [:new, :create, :edit, :update, :destroy]
-  end
+  resources :myportfolios, only: [:index]
+  resources :projects, only: [:new, :create, :edit, :update, :destroy]
 
 end

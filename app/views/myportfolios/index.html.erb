@@ -35,37 +35,26 @@
     <br />
     <p>Here are some personal and professional projects I’d like to share with you. Looks like the projects’ order is important. What if you find the right order ?</p>
 
+    <% if user_signed_in? %>
+      <%= link_to "Add project", new_project_path %>
+    <% end %>
+
     <div class="projects">
+<!--
       <%= link_to "www.laccroche.me" do %>
         <div class="project">
           <p>L'ACCROCHE</p>
         </div>
       <% end %>
+-->
+      <% @projects.each do |p| %>
+        <%= link_to "#{p.url}", p.url do %>
+          <div class="project">
+            <%= cl_image_path p.photo.key %>
+          </div>
+        <% end %>
+      <% end %>
 
-      <div class="project">
-
-      </div>
-      <div class="project">
-
-      </div>
-      <div class="project">
-
-      </div>
-      <div class="project">
-
-      </div>
-      <div class="project">
-
-      </div>
-      <div class="project">
-
-      </div>
-      <div class="project">
-
-      </div>
-      <div class="project">
-
-      </div>
     </div>
   </div>
 
