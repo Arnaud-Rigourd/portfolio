@@ -17,6 +17,10 @@ main {
 
 .container__portfolio {
 
+  a {
+    color: $body;
+  }
+
   & > p {
     text-align: center;
     margin-bottom: 50px;
@@ -24,19 +28,19 @@ main {
 
   .projects {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-row-gap: 20px;
     grid-column-gap: 20px;
   }
 
   .project {
-    justify-self: center;
-    width: 250px;
-    height: 250px;
-    background-size: contain;
+    align-items: center;
     background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     justify-content: center;
-    align-items: center;
+    justify-self: center;
+    width: 460px;
+    height: 250px;
   }
 }
