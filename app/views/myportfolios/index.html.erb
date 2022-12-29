@@ -39,15 +39,21 @@
 
     <div class="projects">
       <% @projects.each do |p| %>
-        <%= link_to "https://#{p.url}", target:"_blank" do %>
-          <div class="project" style="background-image: url('<%= cl_image_path p.photo.key %>')">
-            <p><%= p.title.upcase %></p>
-          </div>
-        <% end %>
-        <% if user_signed_in? %>
-          <p><%= link_to "Edit", edit_project_path(p) %></p>
-          <p><%= link_to "Delete", project_path(p), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
-        <% end %>
+        <div class="project", style="background-image: url('<%= cl_image_path p.photo.key %>')">
+          <%= link_to "https://#{p.url}", target:"_blank" do %>
+            <div class="project-title" >
+              <p><%= p.title.upcase %></p>
+              <p><%= p.description %></p>
+            </div>
+          <% end %>
+
+          <% if user_signed_in? %>
+            <div class="project-man">
+              <p class="edit"><%= link_to "Edit", edit_project_path(p) %></p>
+              <p class="delete"><%= link_to "Delete", project_path(p), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+            </div>
+          <% end %>
+        </div>
       <% end %>
 
       <% if user_signed_in? %>

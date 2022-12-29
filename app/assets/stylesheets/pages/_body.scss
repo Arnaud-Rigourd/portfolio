@@ -16,10 +16,6 @@ main {
 
 .container__portfolio {
 
-  a {
-    color: $body;
-  }
-
   & > p {
     text-align: center;
     margin-bottom: 50px;
@@ -31,31 +27,101 @@ main {
     grid-row-gap: 20px;
     grid-column-gap: 20px;
 
+    & > a {
+      width: $card-width;
+      height: $card-height;
+    }
+
     .projects__new-btn {
       align-items: center;
       border: 2px solid $footer-color;
       border-radius: 10px;
       display: flex;
-      height: 250px;
       justify-content: center;
+      transition: all 300ms linear;
 
       .fa-plus {
         font-size: 55px;
         font-weight: lighter;
         color: $footer-color;
+        transition: color 300ms linear;
+      }
+
+      &:hover {
+        border-color: $hover-color;
+
+        & > .fa-plus {
+          color: $hover-color;
+        }
       }
     }
-
   }
 
   .project {
-    align-items: center;
-    background-repeat: no-repeat;
+    position: relative;
     background-size: cover;
-    display: flex;
-    justify-content: center;
-    justify-self: center;
-    width: 460px;
-    height: 250px;
+    width: $card-width;
+    height: $card-height;
+
+    a {
+      color: $body;
+      width: 100%;
+      height: 100%;
+
+      .project-title {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        transition: all 300ms linear;
+
+        p {
+          opacity: 0;
+          color: white;
+          font-size: 14px;
+          margin: 5px;
+          text-align: center;
+          transition: all 500ms linear;
+
+          &:first-child {
+            font-size: 32px;
+            letter-spacing: 3px;
+          }
+        }
+      }
+
+      &:hover {
+        & p {
+
+          &:first-child {
+            opacity: 1;
+          }
+
+          &:last-child {
+            opacity: 0.8;
+          }
+        }
+
+        & > .project-title,
+        & p {
+          backdrop-filter: brightness(0.2);
+        }
+      }
+    }
+
+    .project-man {
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 5px;
+      width: 100%;
+
+      & > p > a {
+        color: white;
+      }
+    }
   }
 }
