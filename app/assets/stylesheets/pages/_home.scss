@@ -3,6 +3,11 @@
 	padding: 0;
 	box-sizing: border-box; /* la propriété par défaut est content-box */
 	list-style: none;
+
+  a{
+    color: $header-text;
+    text-decoration: none;
+  }
 }
 
 header {
@@ -67,6 +72,10 @@ header {
 
     h3 {
       color: $header-text;
+    }
+
+    a {
+
     }
   }
 
