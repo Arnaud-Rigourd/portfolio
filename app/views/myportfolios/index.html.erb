@@ -24,14 +24,16 @@
   </div>
 
   <div class="header__scroll">
-    <p>SCROLL TO DISROVER</p>
+    <p><a href="#portfolio">SCROLL TO DISROVER</a></p>
     <p>|</p>
   </div>
 </header>
 
+<span id="portfolio"></span>
+
 <main>
   <div class="container__portfolio">
-    <h3 id="portfolio">PORTOFLIO</h3>
+    <h3>PORTOFLIO</h3>
     <br />
     <p>Here are some personal and professional projects I’d like to share with you.</p>
 
@@ -40,13 +42,6 @@
     <% end %>
 
     <div class="projects">
-<!--
-      <%= link_to "www.laccroche.me" do %>
-        <div class="project">
-          <p>L'ACCROCHE</p>
-        </div>
-      <% end %>
--->
       <% @projects.each do |p| %>
         <%= link_to "https://#{p.url}", target:"_blank" do %>
           <div class="project" style="background-image: url('<%= cl_image_path p.photo.key %>')">
