@@ -1,0 +1,23 @@
+.new-btn {
+  align-items: center;
+  border: 2px solid $footer-color;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  transition: all 300ms linear;
+
+  .fa-plus {
+    font-size: 55px;
+    font-weight: lighter;
+    color: $footer-color;
+    transition: color 300ms linear;
+  }
+
+  &:hover {
+    border-color: $hover-color;
+
+    & > .fa-plus {
+      color: $hover-color;
+    }
+  }
+}

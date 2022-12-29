@@ -8,5 +8,5 @@ Rails.application.routes.draw do
 
   resources :myportfolios, only: [:index]
   resources :projects, only: [:new, :create, :edit, :update, :destroy]
-
+  resources :stacks, only: [:new, :create, :edit, :update, :destroy]
 end
