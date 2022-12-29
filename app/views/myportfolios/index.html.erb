@@ -72,7 +72,7 @@
       <% @stacks.each do |s| %>
         <div class="stack">
           <p><%= cl_image_tag s.photo.key, style:"max-width: 40px; height: 40px", alt:"image" %></p>
-          <p><%= s.name %></p>
+          <p class="stack-name"><%= s.name %></p>
 
           <% if user_signed_in? %>
             <div class="stack-man">

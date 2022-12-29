@@ -1,14 +1,42 @@
 .stacks {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr) ;
+  grid-gap: 10px;
+  max-width: 800px;
+  margin: 0 auto;
 
   a {
     color: $body;
   }
-  // ul {
-  //   display: flex;
-  //   flex-grow: 1;
-  //   justify-content: center;
-  //   align-items: center;
-  //   width: 800px;
-  //   margin: 0 auto;
-  // }
+}
+
+.stack {
+  position: relative;
+  width: 100px;
+  align-self: center;
+  justify-self: center;
+
+  p:first-child {
+    display: flex;
+  }
+
+  img {
+    margin: auto;
+  }
+
+  .stack-name {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .stack-man {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+
+    p {
+      font-size: 12px;
+    }
+  }
 }
