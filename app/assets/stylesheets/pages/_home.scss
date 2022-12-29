@@ -28,13 +28,13 @@ header {
 
   nav {
     position: fixed;
-    top: 0;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0);
     display: flex;
-    justify-content: space-between;
     height: 66px;
-    background-color: black;
+    justify-content: space-between;
     padding: 0 10px;
+    top: 0;
     width: 100%;
     z-index: 1;
 

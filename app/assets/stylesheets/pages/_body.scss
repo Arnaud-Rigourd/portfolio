@@ -9,9 +9,8 @@ main {
   }
 
   h3 {
-    font-weight: bold;
+    letter-spacing: 3px;
     text-align: center;
-    text-decoration: underline;
   }
 }
 
@@ -31,6 +30,22 @@ main {
     grid-template-columns: repeat(3, 1fr);
     grid-row-gap: 20px;
     grid-column-gap: 20px;
+
+    .projects__new-btn {
+      align-items: center;
+      border: 2px solid $footer-color;
+      border-radius: 10px;
+      display: flex;
+      height: 250px;
+      justify-content: center;
+
+      .fa-plus {
+        font-size: 55px;
+        font-weight: lighter;
+        color: $footer-color;
+      }
+    }
+
   }
 
   .project {
