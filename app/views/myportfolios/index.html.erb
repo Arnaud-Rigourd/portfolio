@@ -37,10 +37,6 @@
     <br />
     <p>Here are some personal and professional projects I’d like to share with you.</p>
 
-    <% if user_signed_in? %>
-      <%= link_to "Add project", new_project_path %>
-    <% end %>
-
     <div class="projects">
       <% @projects.each do |p| %>
         <%= link_to "https://#{p.url}", target:"_blank" do %>
@@ -51,6 +47,12 @@
         <% if user_signed_in? %>
           <p><%= link_to "Edit", edit_project_path(p) %></p>
           <p><%= link_to "Delete", project_path(p), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+        <% end %>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <%= link_to new_project_path, class:"projects__new-btn" do %>
+          <i class="fa-solid fa-plus"></i>
         <% end %>
       <% end %>
 
@@ -88,5 +90,25 @@
 </main>
 
 <footer>
-  <h3 id="contact">CONTACT ME</h3>
+  <h3 id="contact">CONTACT</h3>
+
+  <div class="container__contact">
+    <div class="container__contact--info">
+      <a href="https://www.linkedin.com/in/arnaudrigourd/"><i class="fa-brands fa-linkedin"></i></a>
+      <p>LINKEDIN</p>
+      <p><a href="https://www.linkedin.com/in/arnaudrigourd/" target="_blank">@arnaudrigourd</a></p>
+    </div>
+
+    <div class="container__contact--info">
+      <i class="fa-solid fa-envelope"></i>
+      <p>EMAIL</p>
+      <p>arnaud.rigourd@hotmail.fr</p>
+    </div>
+
+    <div class="container__contact--info">
+      <a href="https://github.com/Arnaud-Rigourd"><i class="fa-brands fa-square-github"></i></a>
+      <p>GITHUB</p>
+      <p><a href="https://github.com/Arnaud-Rigourd" target="_blank">@Arnaud-Rigourd</a></p>
+    </div>
+  </div>
 </footer>

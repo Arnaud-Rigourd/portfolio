@@ -1,0 +1,40 @@
+footer {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #b5d0cd6b;
+
+  h3 {
+    margin-top: 30px;
+    text-decoration: underline;
+  }
+
+  a {
+    color: $body;
+  }
+}
+
+.container__contact {
+  display: flex;
+  margin: 20px;
+
+  .container__contact--info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+
+    &:first-child p a,
+    &:last-child p a{
+      text-decoration: underline;
+    }
+
+    .fa-solid, .fa-brands {
+      font-size: 45px;
+      margin: 15px;
+    }
+  }
+}
