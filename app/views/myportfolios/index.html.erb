@@ -39,19 +39,25 @@
 
     <div class="projects">
       <% @projects.each do |p| %>
-        <%= link_to "https://#{p.url}", target:"_blank" do %>
-          <div class="project" style="background-image: url('<%= cl_image_path p.photo.key %>')">
-            <p><%= p.title.upcase %></p>
-          </div>
-        <% end %>
-        <% if user_signed_in? %>
-          <p><%= link_to "Edit", edit_project_path(p) %></p>
-          <p><%= link_to "Delete", project_path(p), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
-        <% end %>
+        <div class="project", style="background-image: url('<%= cl_image_path p.photo.key %>')">
+          <%= link_to "https://#{p.url}", target:"_blank" do %>
+            <div class="project-title" >
+              <p><%= p.title.upcase %></p>
+              <p><%= p.description %></p>
+            </div>
+          <% end %>
+
+          <% if user_signed_in? %>
+            <div class="project-man">
+              <p><%= link_to "Edit", edit_project_path(p) %></p>
+              <p><%= link_to "Delete", project_path(p), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+            </div>
+          <% end %>
+        </div>
       <% end %>
 
       <% if user_signed_in? %>
-        <%= link_to new_project_path, class:"projects__new-btn" do %>
+        <%= link_to new_project_path, class:"new-btn" do %>
           <i class="fa-solid fa-plus"></i>
         <% end %>
       <% end %>
@@ -59,20 +65,30 @@
     </div>
   </div>
 
-  <div class="stacks">
+  <div class="container__stacks">
     <h3 id="stacks">STACKS</h3>
 
-    <ul>
-      <li>Ruby</li>
-      <li>Ruby on Rails</li>
-      <li>JS</li>
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>Git</li>
-      <li>GitHub</li>
-      <li>Heroku</li>
-      <li>Figma</li>
-    </ul>
+    <div class="stacks">
+      <% @stacks.each do |s| %>
+        <div class="stack">
+          <p><%= cl_image_tag s.photo.key, style:"max-width: 40px; height: 40px", alt:"image" %></p>
+          <p><%= s.name %></p>
+
+          <% if user_signed_in? %>
+            <div class="stack-man">
+              <p><%= link_to "Edit", edit_stack_path(s) %></p>
+              <p><%= link_to "Delete", stack_path(s), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <%= link_to new_stack_path, class:"new-btn" do %>
+          <i class="fa-solid fa-plus"></i>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 
   <div class="container__about-me">

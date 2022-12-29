@@ -1,0 +1,9 @@
+<div class="container__form">
+  <%= simple_form_for(stack) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
+<%= link_to "back to home", myportfolios_path %>
