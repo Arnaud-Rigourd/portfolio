@@ -1,23 +1,25 @@
-<div class="wrapper" data-controller="navbar" data-navbar-target="wrapper" data-action="scroll->navbar#updateNavbar">
-  <header data-navbar-target="header">
-    <nav data-navbar-target="navbar">
-      <p><a href="#top">ARNAUD RIGOURD</a></p>
+<nav data-navbar-target="navbar" >
+  <p><a href="#top">ARNAUD RIGOURD</a></p>
 
-      <p id="log">
-        <% if user_signed_in? %>
-          <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
-        <% else %>
-          <%= link_to "log in", new_user_session_path %>
-        <% end %>
-      </p>
+  <p id="log">
+    <% if user_signed_in? %>
+      <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
+    <% else %>
+      <%= link_to "log in", new_user_session_path %>
+    <% end %>
+  </p>
 
-      <ul>
-        <li><a href="#portfolio">PORTFOLIO</a></li>
-        <li><a href="#stacks">STACKS</a></li>
-        <li><a href="#about-me">ABOUT ME</a></li>
-        <li><a href="#contact">CONTACT</a></li>
-      </ul>
-    </nav>
+  <ul>
+    <li><a href="#portfolio">PORTFOLIO</a></li>
+    <li><a href="#stacks">STACKS</a></li>
+    <li><a href="#about-me">ABOUT ME</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+  </ul>
+</nav>
+
+<div class="wrapper" data-navbar-target="wrapper" data-action="scroll->navbar#updateNavbar">
+
+  <header>
 
     <div class="header__image" id="top">
       <h1>ARNAUD RIGOURD</h1>
