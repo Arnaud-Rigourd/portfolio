@@ -1,16 +1,27 @@
 main {
   width: 1080px;
-  margin: 50px auto;
+  margin: 0 auto 50px auto;
   display: flex;
   flex-direction: column;
 
   & > div {
-    margin: 25px 0;
+    margin: 100px 0;
   }
 
   h3 {
     letter-spacing: 3px;
+    margin: 50px;
     text-align: center;
+  }
+
+  p {
+    color: $body;
+  }
+
+  .container__stacks{
+    border-top: 1px solid $footer-color;
+    border-bottom: 1px solid $footer-color;
+    padding-bottom: 60px;
   }
 }
 
