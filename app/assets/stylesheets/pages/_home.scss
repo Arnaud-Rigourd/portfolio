@@ -29,7 +29,7 @@ header {
   nav {
     position: fixed;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: #00000000;
     display: flex;
     height: 66px;
     justify-content: space-between;
@@ -37,6 +37,11 @@ header {
     top: 0;
     width: 100%;
     z-index: 1;
+    transition: background-color 300ms linear;
+
+    &.nav-bg {
+      background-color: #000000;
+    }
 
     ul {
       display: flex;
