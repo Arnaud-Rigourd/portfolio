@@ -2,17 +2,22 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="navbar"
 export default class extends Controller {
+  static targets = ["navbar", "header", "wrapper"]
 
   connect() {
-    // console.log("Hello from navbar controller!")
-    // console.log(this.navbarTarget)
+    // console.log(`scrollY = ${window.scrollY}`)
+    console.log(`scrollY = ${this.wrapperTarget.scrollY}`)
+    console.log(window.innerHeight)
+    console.log(this.headerTarget.innerHeight)
   }
 
   updateNavbar() {
-    if (window.scrollY >= window.innerHeight) {
-      this.element.classList.add("nav-bg")
+    console.log(`scrollY = ${this.wrapperTarget.scrollTop}`)
+
+    if (this.wrapperTarget.scrollTop >= window.innerHeight) {
+      this.navbarTarget.classList.add("nav-bg")
     } else {
-      this.element.classList.remove("nav-bg")
+      this.navbarTarget.classList.remove("nav-bg")
     }
   }
 }
