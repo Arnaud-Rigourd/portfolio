@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
+
+import SortableStacksController from "./sortable_stacks_controller"
+application.register("sortable-stacks", SortableStacksController)

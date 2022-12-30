@@ -41,7 +41,7 @@
 
       <p>Here are some personal and professional projects I’d like to share with you.</p>
 
-      <div class="projects">
+      <div class="projects" data-controller="sortable-projects" data-sortable-project-target="projects">
         <% @projects.each do |p| %>
           <div class="project", style="background-image: url('<%= cl_image_path p.photo.key %>')">
             <%= link_to "https://#{p.url}", target:"_blank" do %>
@@ -74,7 +74,7 @@
     <div class="container__stacks">
       <h3>STACKS</h3>
 
-      <div class="stacks">
+      <div class="stacks" data-controller="sortable-stacks" data-sortable-stack-target="stacks">
         <% @stacks.each do |s| %>
           <div class="stack">
             <p><%= cl_image_tag s.photo.key, style:"max-width: 40px; height: 40px", alt:"image" %></p>
