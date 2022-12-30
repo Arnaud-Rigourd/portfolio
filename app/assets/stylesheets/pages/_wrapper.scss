@@ -3,6 +3,16 @@
   overflow-y: auto;
   overflow-x: hidden;
   perspective: 10px;
+  width: 100vw;
+
+  .container__portfolio,
+  .container__stacks,
+  .container__about-me {
+    @media screen and (max-width: 576px) {
+      max-width: 350px;
+      margin: 0 20px;
+    }
+  }
 }
 
 .main-wrapper {

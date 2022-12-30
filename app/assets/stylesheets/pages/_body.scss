@@ -38,11 +38,15 @@ main {
     grid-row-gap: 20px;
     grid-column-gap: 20px;
 
+    @media screen and (max-width: 576px) {
+      grid-template-columns: 1fr;
+      grid-row-gap: 10px;
+    }
+
     & > a {
       width: $card-width;
       height: $card-height;
     }
-
   }
 
   .project {
@@ -50,6 +54,11 @@ main {
     background-size: cover;
     width: $card-width;
     height: $card-height;
+
+    @media screen and (max-width: 576px) {
+      width: 100%;
+      max-height: $card-height;
+    }
 
     a {
       color: $body;
@@ -106,6 +115,10 @@ main {
       justify-content: space-between;
       padding: 5px;
       width: 100%;
+
+      @media screen and (max-width: 576px) {
+        display: none;
+      }
 
       & > p > a {
         color: white;
