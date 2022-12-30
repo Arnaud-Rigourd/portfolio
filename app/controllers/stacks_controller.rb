@@ -32,6 +32,17 @@ class StacksController < ApplicationController
     redirect_to myportfolios_path
   end
 
+  def sort
+    @user = current_user
+
+    @stack_sorted = params[:stackOrdered].split(",").map{ |id| Stack.find(id.to_i) }
+
+    @stack_sorted.each_with_index do |p, index|
+      p.position = index + 1
+      p.save
+    end
+  end
+
   private
 
   def stack_params
