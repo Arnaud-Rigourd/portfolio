@@ -1,134 +1,136 @@
-<header>
-  <nav data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
-    <p><a href="#top">ARNAUD RIGOURD</a></p>
+<div class="wrapper" data-controller="navbar" data-navbar-target="wrapper" data-action="scroll->navbar#updateNavbar">
+  <header data-navbar-target="header">
+    <nav data-navbar-target="navbar">
+      <p><a href="#top">ARNAUD RIGOURD</a></p>
 
-    <p id="log">
-      <% if user_signed_in? %>
-        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
-      <% else %>
-        <%= link_to "log in", new_user_session_path %>
-      <% end %>
-    </p>
-
-    <ul>
-      <li><a href="#portfolio">PORTFOLIO</a></li>
-      <li><a href="#stacks">STACKS</a></li>
-      <li><a href="#about-me">ABOUT ME</a></li>
-      <li><a href="#contact">CONTACT</a></li>
-    </ul>
-  </nav>
-
-  <div class="header__image" id="top">
-    <h1>ARNAUD RIGOURD</h1>
-    <h3>Full Stack Developer</h3>
-  </div>
-
-  <div class="header__scroll">
-    <p><a href="#portfolio">SCROLL TO DISROVER</a></p>
-    <p>|</p>
-  </div>
-</header>
-
-<span id="portfolio"></span>
-
-<main>
-  <div class="container__portfolio">
-    <h3>PORTOFLIO</h3>
-
-    <p>Here are some personal and professional projects I’d like to share with you.</p>
-
-    <div class="projects">
-      <% @projects.each do |p| %>
-        <div class="project", style="background-image: url('<%= cl_image_path p.photo.key %>')">
-          <%= link_to "https://#{p.url}", target:"_blank" do %>
-            <div class="project-title" >
-              <p><%= p.title.upcase %></p>
-              <p><%= p.description %></p>
-            </div>
-          <% end %>
-
-          <% if user_signed_in? %>
-            <div class="project-man">
-              <p><%= link_to "Edit", edit_project_path(p) %></p>
-              <p><%= link_to "Delete", project_path(p), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-
-      <% if user_signed_in? %>
-        <%= link_to new_project_path, class:"new-btn" do %>
-          <i class="fa-solid fa-plus"></i>
+      <p id="log">
+        <% if user_signed_in? %>
+          <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
+        <% else %>
+          <%= link_to "log in", new_user_session_path %>
         <% end %>
-      <% end %>
+      </p>
 
+      <ul>
+        <li><a href="#portfolio">PORTFOLIO</a></li>
+        <li><a href="#stacks">STACKS</a></li>
+        <li><a href="#about-me">ABOUT ME</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </nav>
+
+    <div class="header__image" id="top">
+      <h1>ARNAUD RIGOURD</h1>
+      <h3>Full Stack Developer</h3>
     </div>
-  </div>
 
-  <span id="stacks"></span>
+    <div class="header__scroll">
+      <p><a href="#portfolio">SCROLL TO DISROVER</a></p>
+      <p>|</p>
+    </div>
+  </header>
 
-  <div class="container__stacks">
-    <h3>STACKS</h3>
+  <span id="portfolio"></span>
 
-    <div class="stacks">
-      <% @stacks.each do |s| %>
-        <div class="stack">
-          <p><%= cl_image_tag s.photo.key, style:"max-width: 40px; height: 40px", alt:"image" %></p>
-          <p class="stack-name"><%= s.name %></p>
+  <main>
+    <div class="container__portfolio">
+      <h3>PORTOFLIO</h3>
 
-          <% if user_signed_in? %>
-            <div class="stack-man">
-              <p><%= link_to "Edit", edit_stack_path(s) %></p>
-              <p><%= link_to "Delete", stack_path(s), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+      <p>Here are some personal and professional projects I’d like to share with you.</p>
 
-      <% if user_signed_in? %>
-        <%= link_to new_stack_path, class:"new-btn" do %>
-          <i class="fa-solid fa-plus"></i>
+      <div class="projects">
+        <% @projects.each do |p| %>
+          <div class="project", style="background-image: url('<%= cl_image_path p.photo.key %>')">
+            <%= link_to "https://#{p.url}", target:"_blank" do %>
+              <div class="project-title" >
+                <p><%= p.title.upcase %></p>
+                <p><%= p.description %></p>
+              </div>
+            <% end %>
+
+            <% if user_signed_in? %>
+              <div class="project-man">
+                <p><%= link_to "Edit", edit_project_path(p) %></p>
+                <p><%= link_to "Delete", project_path(p), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+              </div>
+            <% end %>
+          </div>
         <% end %>
-      <% end %>
-    </div>
-  </div>
 
-  <span id="about-me"></span>
+        <% if user_signed_in? %>
+          <%= link_to new_project_path, class:"new-btn" do %>
+            <i class="fa-solid fa-plus"></i>
+          <% end %>
+        <% end %>
 
-  <div class="container__about-me">
-    <h3>ABOUT ME</h3>
-
-    <p>Hello! My name is Arnaud Rigourd, and I am a 28-year-old junior full stack developer with a strong background in business and finance. I received my education at ESC Rennes School of Business, where I studied business administration, and later pursued a master's degree in finance.</p>
-    <br />
-    <p>After completing my studies, I began my career as a relationship manager at a leading French bank. However, I wanted to challenge myself with new opportunities and expand my horizons, which led me to return to school at Le Wagon Paris to study Web Development.</p>
-    <br />
-    <p>As a junior developer, I am now seeking freelance missions or a full-time job to further develop my skills and work with companies on their digitalization strategy. I am particularly interested in working with companies that value personalization and customization, as I believe that a company's values should be reflected in their website.</p>
-    <br />
-    <p>I am a strong believer in teamwork and have developed this skill through my studies and previous experiences. I am also an ambitious and fast learner who enjoys taking on new challenges, as demonstrated by my career choices. If you are looking for a reliable and motivated collaborator on your next project, please do not hesitate to contact me 😊</p>
-  </div>
-
-</main>
-
-<footer>
-  <h3 id="contact">CONTACT</h3>
-
-  <div class="container__contact">
-    <div class="container__contact--info">
-      <a href="https://www.linkedin.com/in/arnaudrigourd/"><i class="fa-brands fa-linkedin"></i></a>
-      <p>LINKEDIN</p>
-      <p><a href="https://www.linkedin.com/in/arnaudrigourd/" target="_blank">@arnaudrigourd</a></p>
+      </div>
     </div>
 
-    <div class="container__contact--info">
-      <i class="fa-solid fa-envelope"></i>
-      <p>EMAIL</p>
-      <p>arnaud.rigourd@hotmail.fr</p>
+    <span id="stacks"></span>
+
+    <div class="container__stacks">
+      <h3>STACKS</h3>
+
+      <div class="stacks">
+        <% @stacks.each do |s| %>
+          <div class="stack">
+            <p><%= cl_image_tag s.photo.key, style:"max-width: 40px; height: 40px", alt:"image" %></p>
+            <p class="stack-name"><%= s.name %></p>
+
+            <% if user_signed_in? %>
+              <div class="stack-man">
+                <p><%= link_to "Edit", edit_stack_path(s) %></p>
+                <p><%= link_to "Delete", stack_path(s), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+
+        <% if user_signed_in? %>
+          <%= link_to new_stack_path, class:"new-btn" do %>
+            <i class="fa-solid fa-plus"></i>
+          <% end %>
+        <% end %>
+      </div>
     </div>
 
-    <div class="container__contact--info">
-      <a href="https://github.com/Arnaud-Rigourd"><i class="fa-brands fa-square-github"></i></a>
-      <p>GITHUB</p>
-      <p><a href="https://github.com/Arnaud-Rigourd" target="_blank">@Arnaud-Rigourd</a></p>
+    <span id="about-me"></span>
+
+    <div class="container__about-me">
+      <h3>ABOUT ME</h3>
+
+      <p>Hello! My name is Arnaud Rigourd, and I am a 28-year-old junior full stack developer with a strong background in business and finance. I received my education at ESC Rennes School of Business, where I studied business administration, and later pursued a master's degree in finance.</p>
+      <br />
+      <p>After completing my studies, I began my career as a relationship manager at a leading French bank. However, I wanted to challenge myself with new opportunities and expand my horizons, which led me to return to school at Le Wagon Paris to study Web Development.</p>
+      <br />
+      <p>As a junior developer, I am now seeking freelance missions or a full-time job to further develop my skills and work with companies on their digitalization strategy. I am particularly interested in working with companies that value personalization and customization, as I believe that a company's values should be reflected in their website.</p>
+      <br />
+      <p>I am a strong believer in teamwork and have developed this skill through my studies and previous experiences. I am also an ambitious and fast learner who enjoys taking on new challenges, as demonstrated by my career choices. If you are looking for a reliable and motivated collaborator on your next project, please do not hesitate to contact me 😊</p>
     </div>
-  </div>
-</footer>
+
+  </main>
+
+  <footer>
+    <h3 id="contact">CONTACT</h3>
+
+    <div class="container__contact">
+      <div class="container__contact--info">
+        <a href="https://www.linkedin.com/in/arnaudrigourd/"><i class="fa-brands fa-linkedin"></i></a>
+        <p>LINKEDIN</p>
+        <p><a href="https://www.linkedin.com/in/arnaudrigourd/" target="_blank">@arnaudrigourd</a></p>
+      </div>
+
+      <div class="container__contact--info">
+        <i class="fa-solid fa-envelope"></i>
+        <p>EMAIL</p>
+        <p>arnaud.rigourd@hotmail.fr</p>
+      </div>
+
+      <div class="container__contact--info">
+        <a href="https://github.com/Arnaud-Rigourd"><i class="fa-brands fa-square-github"></i></a>
+        <p>GITHUB</p>
+        <p><a href="https://github.com/Arnaud-Rigourd" target="_blank">@Arnaud-Rigourd</a></p>
+      </div>
+    </div>
+  </footer>
+</div>
