@@ -20,6 +20,11 @@ footer {
 .container__contact {
   display: flex;
   margin: 20px;
+  transition: flex-direction 500ms;
+
+  @media screen and (max-width: 660px) {
+    flex-direction: column;
+  }
 
   .container__contact--info {
     display: flex;

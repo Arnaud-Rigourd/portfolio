@@ -10,13 +10,52 @@
   .container__stacks,
   .container__about-me {
     @media screen and (max-width: 576px) {
-      max-width: 350px;
-      margin: 0 20px;
+      // max-width: 350px;
     }
   }
 }
 
 .main-wrapper {
   background-color: white;
+  display: flex;
+  justify-content: center;
   width: 100%;
+}
+
+main {
+  width: 85%;
+  min-width: 1240px;
+  max-width: 1400px;
+  margin: 0 auto 100px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media screen and (max-width: 1240px) {
+    width: 100vw;
+  }
+
+  @media screen and (max-width: 500px) {
+    margin: 0 0 100px 0;
+  }
+
+  & > div {
+    margin: 50px auto;
+  }
+
+  h3 {
+    letter-spacing: 3px;
+    margin: 50px;
+    text-align: center;
+  }
+
+  p {
+    color: $body;
+  }
+
+  .container__stacks{
+    border-top: 1px solid $footer-color;
+    border-bottom: 1px solid $footer-color;
+    padding-bottom: 60px;
+  }
 }

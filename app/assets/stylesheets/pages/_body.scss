@@ -1,35 +1,16 @@
-main {
-  width: 1080px;
-  margin: 0 auto 100px auto;
+.container__portfolio {
   display: flex;
   flex-direction: column;
-
-  & > div {
-    margin: 50px 0;
-  }
-
-  h3 {
-    letter-spacing: 3px;
-    margin: 50px;
-    text-align: center;
-  }
-
-  p {
-    color: $body;
-  }
-
-  .container__stacks{
-    border-top: 1px solid $footer-color;
-    border-bottom: 1px solid $footer-color;
-    padding-bottom: 60px;
-  }
-}
-
-.container__portfolio {
+  align-items: center;
 
   & > p {
     text-align: center;
     margin-bottom: 50px;
+    transition: width 500ms;
+
+    @media screen and (max-width: 600px) {
+      width: 90vw;
+    }
   }
 
   .projects {
@@ -37,8 +18,13 @@ main {
     grid-template-columns: repeat(3, 1fr);
     grid-row-gap: 20px;
     grid-column-gap: 20px;
+    transition: grid-row-gap 500ms;
 
-    @media screen and (max-width: 576px) {
+    @media screen and (max-width: 1240px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width: 992px) {
       grid-template-columns: 1fr;
       grid-row-gap: 10px;
     }
@@ -47,17 +33,23 @@ main {
       width: $card-width;
       height: $card-height;
     }
+
+    .new-btn {
+      justify-self: center;
+    }
   }
 
   .project {
     position: relative;
     background-size: cover;
-    width: $card-width;
+    justify-self: center;
     height: $card-height;
+    width: $card-width;
+    transition: width 500ms, height 500ms;
 
-    @media screen and (max-width: 576px) {
-      width: 100%;
-      max-height: $card-height;
+    @media screen and (max-width: 400px) {
+      height: 154px;
+      width: 280px;
     }
 
     a {

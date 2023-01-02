@@ -1,5 +1,6 @@
 class StacksController < ApplicationController
   before_action :set_stack, only: [:edit, :update, :destroy]
+  before_action :set_user, only: [:create, :sort]
 
   def new
     @stack = Stack.new
@@ -34,8 +35,6 @@ class StacksController < ApplicationController
   end
 
   def sort
-    @user = current_user
-
     @stack_sorted = params[:stackOrdered].split(",").map{ |id| Stack.find(id.to_i) }
 
     @stack_sorted.each_with_index do |s, index|
@@ -52,5 +51,9 @@ class StacksController < ApplicationController
 
   def set_stack
     @stack = Stack.find(params[:id])
+  end
+
+  def set_user
+    @user = current_user
   end
 end

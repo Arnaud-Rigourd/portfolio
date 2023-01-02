@@ -1,7 +1,7 @@
 * {
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box; /* la propriété par défaut est content-box */
+	box-sizing: border-box;
 	list-style: none;
   font-family: $body-font;
 
@@ -44,10 +44,12 @@ header {
       color: white;
       font-weight: lighter;
       letter-spacing: 10px;
+      text-align: center;
       text-shadow: 0 0 5px black;
+      transition: font-size 500ms;
 
       @media screen and (max-width: 576px) {
-        font-size: 12px;
+        font-size: 16px;
       }
     }
 
@@ -55,9 +57,10 @@ header {
       color: $header-text;
       font-weight: lighter;
       text-shadow: 0 0 5px black;
+      transition: font-size 500ms;
 
       @media screen and (max-width: 576px) {
-        font-size: 10px;
+        font-size: 12px;
       }
     }
   }
