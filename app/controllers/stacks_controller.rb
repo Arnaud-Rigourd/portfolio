@@ -38,9 +38,9 @@ class StacksController < ApplicationController
 
     @stack_sorted = params[:stackOrdered].split(",").map{ |id| Stack.find(id.to_i) }
 
-    @stack_sorted.each_with_index do |p, index|
-      p.position = index + 1
-      p.save
+    @stack_sorted.each_with_index do |s, index|
+      s.position = index + 1
+      s.save
     end
   end
 

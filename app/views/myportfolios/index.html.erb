@@ -36,14 +36,18 @@
 
   <div class="main-wrapper">
     <main>
-      <div class="container__portfolio">
-        <h3 id="portfolio">PORTOFLIO</h3>
+      <div id="portfolio" class="container__portfolio">
+        <h3>PORTOFLIO</h3>
 
         <p>Here are some personal and professional projects I’d like to share with you.</p>
 
-        <div class="projects" data-controller="sortable-projects" data-sortable-project-target="projects">
+        <% if user_signed_in? %>
+          <div class="projects" data-controller="sortable-projects" data-sortable-projects-sort-url-value="<%= sort_projects_path %>">
+        <% else %>
+          <div class="projects">
+        <% end %>
           <% @projects.each do |p| %>
-            <div class="project", style="background-image: url('<%= cl_image_path p.photo.key %>')">
+            <div class="project", style="background-image: url('<%= cl_image_path p.photo.key %>')" data-sortable-projects-target="project", data-project-id= <%= p.id %>>
               <%= link_to "https://#{p.url}", target:"_blank" do %>
                 <div class="project-title" >
                   <p><%= p.title.upcase %></p>
@@ -71,12 +75,16 @@
 
       <%# <span id="stacks"></span> %>
 
-      <div class="container__stacks">
-        <h3 id="stacks">STACKS</h3>
+      <div id="stacks" class="container__stacks">
+        <h3>STACKS</h3>
 
-        <div class="stacks" data-controller="sortable-stacks" data-sortable-stack-target="stacks">
+        <% if user_signed_in? %>
+          <div class="stacks" data-controller="sortable-stacks" data-sortable-stacks-sort-url-value="<%= sort_stacks_path %>">
+        <% else %>
+          <div class="stacks">
+        <% end %>
           <% @stacks.each do |s| %>
-            <div class="stack">
+            <div class="stack" data-sortable-stacks-target="stack" data-stack-id ="<%= s.id %>" >
               <p><%= cl_image_tag s.photo.key, style:"max-width: 40px; height: 40px", alt:"image" %></p>
               <p class="stack-name"><%= s.name %></p>
 
@@ -99,8 +107,8 @@
 
       <%# <span id="about-me"></span> %>
 
-      <div class="container__about-me">
-        <h3 id="about-me">ABOUT ME</h3>
+      <div id="about-me" class="container__about-me">
+        <h3>ABOUT ME</h3>
 
         <p>Hello! My name is Arnaud Rigourd, and I am a 28-year-old junior full stack developer with a strong background in business and finance. I received my education at ESC Rennes School of Business, where I studied business administration, and later pursued a master's degree in finance.</p>
         <br />
