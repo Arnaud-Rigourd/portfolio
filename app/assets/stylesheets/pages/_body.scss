@@ -11,15 +11,14 @@
     grid-row-gap: 20px;
     grid-column-gap: 20px;
 
-    // @media screen and (max-width: 992px) {
-    //   grid-template-columns: 1fr;
-    //   grid-row-gap: 10px;
-    // }
+    @media screen and (max-width: 1200px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
 
-    // @media screen and (max-width: 768px) {
-    //   grid-template-columns: 1fr;
-    //   grid-row-gap: 10px;
-    // }
+    @media screen and (max-width: 992px) {
+      grid-template-columns: 1fr;
+      grid-row-gap: 10px;
+    }
 
     @media screen and (max-width: 576px) {
       grid-template-columns: 1fr;
@@ -30,18 +29,18 @@
       width: $card-width;
       height: $card-height;
     }
+
+    .new-btn {
+      justify-self: center;
+    }
   }
 
   .project {
     position: relative;
     background-size: cover;
+    justify-self: center;
     width: $card-width;
     height: $card-height;
-
-    @media screen and (max-width: 576px) {
-      width: 100%;
-      max-height: $card-height;
-    }
 
     a {
       color: $body;
