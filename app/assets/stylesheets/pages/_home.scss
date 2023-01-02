@@ -20,6 +20,10 @@ h6 {
   font-family: $headers-font;
 }
 
+.hidden {
+  display: none;
+}
+
 header {
   position: relative;
   background-image: asset-url("banner-img.jpg");

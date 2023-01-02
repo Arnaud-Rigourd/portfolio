@@ -15,3 +15,6 @@ application.register("sortable-projects", SortableProjectsController)
 
 import SortableStacksController from "./sortable_stacks_controller"
 application.register("sortable-stacks", SortableStacksController)
+
+import ToggleMenuController from "./toggle_menu_controller"
+application.register("toggle-menu", ToggleMenuController)
