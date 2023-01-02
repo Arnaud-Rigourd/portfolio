@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    @project.position = @user.projects.length + 1
     @project.user = current_user
     if @project.save
       redirect_to myportfolios_path
@@ -29,6 +30,17 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     redirect_to myportfolios_path
+  end
+
+  def sort
+    @user = current_user
+
+    @project_sorted = params[:projectOrdered].split(",").map{ |id| Project.find(id.to_i) }
+
+    @project_sorted.each_with_index do |p, index|
+      p.position = index + 1
+      p.save
+    end
   end
 
   private

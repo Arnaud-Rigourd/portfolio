@@ -7,6 +7,7 @@ class StacksController < ApplicationController
 
   def create
     @stack = Stack.new(stack_params)
+    @stack.position = @user.stacks.length + 1
     @stack.user = current_user
 
     if @stack.save
@@ -37,9 +38,9 @@ class StacksController < ApplicationController
 
     @stack_sorted = params[:stackOrdered].split(",").map{ |id| Stack.find(id.to_i) }
 
-    @stack_sorted.each_with_index do |p, index|
-      p.position = index + 1
-      p.save
+    @stack_sorted.each_with_index do |s, index|
+      s.position = index + 1
+      s.save
     end
   end
 

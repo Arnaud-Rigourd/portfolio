@@ -32,87 +32,95 @@
     </div>
   </header>
 
-  <span id="portfolio"></span>
+  <%# <span id="portfolio"></span> %>
 
-<div class="main-wrapper">
-  <main>
-    <div class="container__portfolio">
-      <h3>PORTOFLIO</h3>
+  <div class="main-wrapper">
+    <main>
+      <div id="portfolio" class="container__portfolio">
+        <h3>PORTOFLIO</h3>
 
-      <p>Here are some personal and professional projects I’d like to share with you.</p>
-
-      <div class="projects" data-controller="sortable-projects" data-sortable-project-target="projects">
-        <% @projects.each do |p| %>
-          <div class="project", style="background-image: url('<%= cl_image_path p.photo.key %>')">
-            <%= link_to "https://#{p.url}", target:"_blank" do %>
-              <div class="project-title" >
-                <p><%= p.title.upcase %></p>
-                <p><%= p.description %></p>
-              </div>
-            <% end %>
-
-            <% if user_signed_in? %>
-              <div class="project-man">
-                <p><%= link_to "Edit", edit_project_path(p) %></p>
-                <p><%= link_to "Delete", project_path(p), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
+        <p>Here are some personal and professional projects I’d like to share with you.</p>
 
         <% if user_signed_in? %>
-          <%= link_to new_project_path, class:"new-btn" do %>
-            <i class="fa-solid fa-plus"></i>
+          <div class="projects" data-controller="sortable-projects" data-sortable-projects-sort-url-value="<%= sort_projects_path %>">
+        <% else %>
+          <div class="projects">
+        <% end %>
+          <% @projects.each do |p| %>
+            <div class="project", style="background-image: url('<%= cl_image_path p.photo.key %>')" data-sortable-projects-target="project", data-project-id= <%= p.id %>>
+              <%= link_to "https://#{p.url}", target:"_blank" do %>
+                <div class="project-title" >
+                  <p><%= p.title.upcase %></p>
+                  <p><%= p.description %></p>
+                </div>
+              <% end %>
+
+              <% if user_signed_in? %>
+                <div class="project-man">
+                  <p><%= link_to "Edit", edit_project_path(p) %></p>
+                  <p><%= link_to "Delete", project_path(p), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+                </div>
+              <% end %>
+            </div>
           <% end %>
-        <% end %>
 
-      </div>
-    </div>
-
-    <span id="stacks"></span>
-
-    <div class="container__stacks">
-      <h3>STACKS</h3>
-
-      <div class="stacks" data-controller="sortable-stacks" data-sortable-stack-target="stacks">
-        <% @stacks.each do |s| %>
-          <div class="stack">
-            <p><%= cl_image_tag s.photo.key, style:"max-width: 40px; height: 40px", alt:"image" %></p>
-            <p class="stack-name"><%= s.name %></p>
-
-            <% if user_signed_in? %>
-              <div class="stack-man">
-                <p><%= link_to "Edit", edit_stack_path(s) %></p>
-                <p><%= link_to "Delete", stack_path(s), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
-              </div>
+          <% if user_signed_in? %>
+            <%= link_to new_project_path, class:"new-btn" do %>
+              <i class="fa-solid fa-plus"></i>
             <% end %>
-          </div>
-        <% end %>
+          <% end %>
+
+        </div>
+      </div>
+
+      <%# <span id="stacks"></span> %>
+
+      <div id="stacks" class="container__stacks">
+        <h3>STACKS</h3>
 
         <% if user_signed_in? %>
-          <%= link_to new_stack_path, class:"new-btn" do %>
-            <i class="fa-solid fa-plus"></i>
-          <% end %>
+          <div class="stacks" data-controller="sortable-stacks" data-sortable-stacks-sort-url-value="<%= sort_stacks_path %>">
+        <% else %>
+          <div class="stacks">
         <% end %>
+          <% @stacks.each do |s| %>
+            <div class="stack" data-sortable-stacks-target="stack" data-stack-id ="<%= s.id %>" >
+              <p><%= cl_image_tag s.photo.key, style:"max-width: 40px; height: 40px", alt:"image" %></p>
+              <p class="stack-name"><%= s.name %></p>
+
+              <% if user_signed_in? %>
+                <div class="stack-man">
+                  <p><%= link_to "Edit", edit_stack_path(s) %></p>
+                  <p><%= link_to "Delete", stack_path(s), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+
+          <% if user_signed_in? %>
+            <%= link_to new_stack_path, class:"new-btn" do %>
+              <i class="fa-solid fa-plus"></i>
+            <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>
 
-    <span id="about-me"></span>
+      <%# <span id="about-me"></span> %>
 
-    <div class="container__about-me">
-      <h3>ABOUT ME</h3>
+      <div id="about-me" class="container__about-me">
+        <h3>ABOUT ME</h3>
 
-      <p>Hello! My name is Arnaud Rigourd, and I am a 28-year-old junior full stack developer with a strong background in business and finance. I received my education at ESC Rennes School of Business, where I studied business administration, and later pursued a master's degree in finance.</p>
-      <br />
-      <p>After completing my studies, I began my career as a relationship manager at a leading French bank. However, I wanted to challenge myself with new opportunities and expand my horizons, which led me to return to school at Le Wagon Paris to study Web Development.</p>
-      <br />
-      <p>As a junior developer, I am now seeking freelance missions or a full-time job to further develop my skills and work with companies on their digitalization strategy. I am particularly interested in working with companies that value personalization and customization, as I believe that a company's values should be reflected in their website.</p>
-      <br />
-      <p>I am a strong believer in teamwork and have developed this skill through my studies and previous experiences. I am also an ambitious and fast learner who enjoys taking on new challenges, as demonstrated by my career choices. If you are looking for a reliable and motivated collaborator on your next project, please do not hesitate to contact me 😊</p>
-    </div>
+        <p>Hello! My name is Arnaud Rigourd, and I am a 28-year-old junior full stack developer with a strong background in business and finance. I received my education at ESC Rennes School of Business, where I studied business administration, and later pursued a master's degree in finance.</p>
+        <br />
+        <p>After completing my studies, I began my career as a relationship manager at a leading French bank. However, I wanted to challenge myself with new opportunities and expand my horizons, which led me to return to school at Le Wagon Paris to study Web Development.</p>
+        <br />
+        <p>As a junior developer, I am now seeking freelance missions or a full-time job to further develop my skills and work with companies on their digitalization strategy. I am particularly interested in working with companies that value personalization and customization, as I believe that a company's values should be reflected in their website.</p>
+        <br />
+        <p>I am a strong believer in teamwork and have developed this skill through my studies and previous experiences. I am also an ambitious and fast learner who enjoys taking on new challenges, as demonstrated by my career choices. If you are looking for a reliable and motivated collaborator on your next project, please do not hesitate to contact me 😊</p>
+      </div>
 
-  </main>
-</div>
+    </main>
+  </div>
 
   <footer>
     <h3 id="contact">CONTACT</h3>
