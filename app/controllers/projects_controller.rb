@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    @project.position = @user.projects.length + 1
     @project.user = current_user
     if @project.save
       redirect_to myportfolios_path

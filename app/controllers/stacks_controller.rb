@@ -7,6 +7,7 @@ class StacksController < ApplicationController
 
   def create
     @stack = Stack.new(stack_params)
+    @stack.position = @user.stacks.length + 1
     @stack.user = current_user
 
     if @stack.save
