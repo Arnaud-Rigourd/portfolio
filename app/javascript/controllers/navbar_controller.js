@@ -7,7 +7,7 @@ export default class extends Controller {
   // }
 
   updateNavbar() {
-    if (this.wrapperTarget.scrollTop >= window.innerHeight) {
+    if (this.wrapperTarget.scrollTop >= (window.innerHeight - 66)) {
       this.navbarTarget.classList.add("nav-bg")
     } else {
       this.navbarTarget.classList.remove("nav-bg")
