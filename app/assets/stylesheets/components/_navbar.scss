@@ -33,6 +33,7 @@ nav {
     position: relative;
 
     .dropdown-list {
+      transition: display 500ms;
 
       ul {
         position: absolute;
