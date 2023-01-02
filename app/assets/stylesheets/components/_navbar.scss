@@ -11,8 +11,51 @@ nav {
   z-index: 1;
   transition: background-color 300ms linear;
 
-  &.nav-bg {
-    background-color: #000000e2;
+  @media screen and (max-width: 576px) {
+    .nav-list {
+      display: none;
+    }
+  }
+
+  // burger menu
+
+  .fa-bars {
+    color: $header-text;
+    cursor: pointer;
+    transition: color 300ms linear;
+
+    &:hover {
+      color: $footer-color-op1;
+    }
+  }
+
+  .toggle-menu {
+    position: relative;
+
+    .dropdown-list {
+
+      ul {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        top: 42px;
+        right: -10px;
+        transition: background-color 300ms linear;
+      }
+
+      li {
+        padding: 5px 0;
+        transition: background-color 300ms linear;
+
+        &:hover {
+          background-color: $footer-color;
+
+          & > a {
+            color: white;
+          }
+        }
+      }
+    }
   }
 
   ul {
@@ -26,6 +69,7 @@ nav {
     padding: 0 10px;
     transition: color 200ms ease;
     text-decoration: none;
+    transition: color 300ms linear;
 
     &:hover {
       color: $footer-color-op1;
@@ -43,4 +87,8 @@ nav {
       cursor: default;
     }
   }
+}
+
+.nav-bg {
+  background-color: #000000e2;
 }

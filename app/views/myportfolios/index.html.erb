@@ -9,12 +9,26 @@
     <% end %>
   </p>
 
-  <ul>
-    <li><a href="#portfolio">PORTFOLIO</a></li>
-    <li><a href="#stacks">STACKS</a></li>
-    <li><a href="#about-me">ABOUT ME</a></li>
-    <li><a href="#contact">CONTACT</a></li>
-  </ul>
+  <div class="toggle-menu hidden" data-controller="toggle-menu">
+    <i class="fa-solid fa-bars" data-toggle-menu-target="burgerMenu"></i>
+    <div class="dropdown-list hidden" data-navbar-target="dropdownList" data-toggle-menu-target="dropdownList">
+      <ul>
+        <li><a href="#portfolio">PORTFOLIO</a></li>
+        <li><a href="#stacks">STACKS</a></li>
+        <li><a href="#about-me">ABOUT ME</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="nav-list">
+    <ul>
+      <li><a href="#portfolio">PORTFOLIO</a></li>
+      <li><a href="#stacks">STACKS</a></li>
+      <li><a href="#about-me">ABOUT ME</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </div>
 </nav>
 
 <div class="wrapper" data-navbar-target="wrapper" data-action="scroll->navbar#updateNavbar">
