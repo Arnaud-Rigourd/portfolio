@@ -33,8 +33,7 @@ footer {
     align-items: center;
     margin: 20px;
 
-    &:first-child p a,
-    &:last-child p a{
+    p > a{
       text-decoration: underline;
     }
 
