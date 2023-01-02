@@ -4,14 +4,14 @@ export default class extends Controller {
   static targets = ["navbar", "wrapper", "dropdownList", "toggleDiv"]
 
   connect() {
-    if (window.innerWidth <= 576) {
+    if (window.innerWidth <= 586) {
       this.toggleDivTarget.classList.remove('hidden')
     } else {
       this.toggleDivTarget.classList.add('hidden')
     }
 
     window.addEventListener("resize", (event) => {
-      if (window.innerWidth <= 576) {
+      if (window.innerWidth <= 586) {
         this.toggleDivTarget.classList.remove('hidden')
       } else {
         this.toggleDivTarget.classList.add('hidden')

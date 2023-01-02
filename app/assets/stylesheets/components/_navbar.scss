@@ -11,7 +11,7 @@ nav {
   z-index: 1;
   transition: background-color 300ms linear;
 
-  @media screen and (max-width: 576px) {
+  @media screen and (max-width: 586px) {
     .nav-list {
       display: none;
     }
@@ -19,13 +19,17 @@ nav {
 
   // burger menu
 
-  .fa-bars {
+  .fa-solid {
     color: $header-text;
     cursor: pointer;
     transition: color 300ms linear;
 
     &:hover {
       color: $footer-color-op1;
+    }
+
+    &.fa-xmark {
+      font-size: 20px;
     }
   }
 

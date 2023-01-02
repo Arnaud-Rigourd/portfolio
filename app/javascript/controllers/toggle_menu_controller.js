@@ -9,5 +9,7 @@ export default class extends Controller {
 
   toggleAction() {
     this.dropdownListTarget.classList.toggle('hidden')
+    this.burgerMenuTarget.classList.toggle('fa-bars')
+    this.burgerMenuTarget.classList.toggle('fa-xmark')
   }
 }
