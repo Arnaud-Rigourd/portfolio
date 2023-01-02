@@ -20,3 +20,31 @@
   background-color: white;
   width: 100%;
 }
+
+main {
+  width: 85%;
+  max-width: 1200px;
+  margin: 0 auto 100px auto;
+  display: flex;
+  flex-direction: column;
+
+  & > div {
+    margin: 50px 0;
+  }
+
+  h3 {
+    letter-spacing: 3px;
+    margin: 50px;
+    text-align: center;
+  }
+
+  p {
+    color: $body;
+  }
+
+  .container__stacks{
+    border-top: 1px solid $footer-color;
+    border-bottom: 1px solid $footer-color;
+    padding-bottom: 60px;
+  }
+}

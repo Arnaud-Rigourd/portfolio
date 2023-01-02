@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:edit, :update, :destroy]
+  before_action :set_user, only: [:create, :sort]
 
   def new
     @project = Project.new
@@ -51,5 +52,9 @@ class ProjectsController < ApplicationController
 
   def set_project
     @project = Project.find(params[:id])
+  end
+
+  def set_user
+    @user = current_user
   end
 end
