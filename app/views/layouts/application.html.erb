@@ -27,7 +27,11 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body data-controller="navbar">
+  <% if params[:action] == "awwwardsone" %>
+    <body class="overflow-x">
+  <% else %>
+    <body data-controller="navbar">
+  <% end %>
     <%= yield %>
   </body>
 </html>
