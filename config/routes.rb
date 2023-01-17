@@ -17,4 +17,6 @@ Rails.application.routes.draw do
       post :sort
     end
   end
+
+  get "myportfolios/awwwardsone", to: "myportfolios#awwwardsone"
 end

@@ -1,5 +1,7 @@
 class MyportfoliosController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
+  before_action :set_user, only: :awwwardsone
+
   def index
     @projects = Project.all
     @stacks = Stack.all
@@ -16,5 +18,16 @@ class MyportfoliosController < ApplicationController
   end
 
   def carousel
+  end
+
+  def awwwardsone
+  end
+
+  private
+
+  def set_user
+    if user_signed_in?
+      @user = current_user
+    end
   end
 end
