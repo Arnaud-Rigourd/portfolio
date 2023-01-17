@@ -1,5 +1,5 @@
 class MyportfoliosController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: [:index, :awwwardsone]
   before_action :set_user, only: :awwwardsone
 
   def index
