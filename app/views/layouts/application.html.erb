@@ -3,8 +3,7 @@
   <head>
     <title>Arnaud Rigourd | Portfolio</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
     <title><%= meta_title %></title>
     <meta name="description" content="<%= meta_description %>">
 
@@ -25,8 +24,10 @@
     <meta name="twitter:image:src" content="<%= meta_image %>">
 
     <%= favicon_link_tag "favicon.ico", rel: "icon", type: "image/png" %>
-    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
     <%= render 'shared/ios_pwa_links' %>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
