@@ -32,13 +32,16 @@
   .stack-name {
     position: absolute;
     color: $footer-color-op1;
-    font-weight: bold;
     width: 100%;
     top: 10px;
     left: 0;
     text-align: center;
     opacity: 0;
     transition: opacity 300ms linear;
+
+    strong {
+      font-weight: bold;;
+    }
   }
 
   .stack-man {

@@ -36,8 +36,8 @@
   <header>
 
     <div class="header__image" id="top">
-      <h1>ARNAUD RIGOURD</h1>
-      <h3>Full Stack Developer</h3>
+      <h1><strong>ARNAUD RIGOURD</strong></h1>
+      <h3><strong>Full Stack Developer</strong></h3>
     </div>
 
     <div class="header__scroll">
@@ -100,7 +100,7 @@
           <% @stacks.each do |s| %>
             <div class="stack" data-sortable-stacks-target="stack" data-stack-id ="<%= s.id %>" >
               <p><%= cl_image_tag s.photo.key, style:"max-width: 40px; height: 40px", alt:"image" %></p>
-              <p class="stack-name"><%= s.name %></p>
+              <p class="stack-name"><strong><%= s.name %></strong></p>
 
               <% if user_signed_in? %>
                 <div class="stack-man">
@@ -124,11 +124,11 @@
       <div id="about-me" class="container__about-me">
         <h3>ABOUT ME</h3>
 
-        <p>Hello! My name is Arnaud Rigourd, and I am a 28-year-old junior full stack developer with a strong background in business and finance. I received my education at ESC Rennes School of Business, where I studied business administration, and later pursued a master's degree in finance.</p>
+        <p>Hello! My name is <strong>Arnaud Rigourd</strong>, and I am a 28-year-old junior <strong>full stack developer</strong> with a strong background in business and finance. I received my education at ESC Rennes School of Business, where I studied business administration, and later pursued a master's degree in finance.</p>
         <br />
-        <p>After completing my studies, I began my career as a relationship manager at a leading French bank. However, I wanted to challenge myself with new opportunities and expand my horizons, which led me to return to school at Le Wagon Paris to study Web Development.</p>
+        <p>After completing my studies, I began my career as a relationship manager at a leading French bank. However, I wanted to challenge myself with new opportunities and expand my horizons, which led me to return to school at <em>Le Wagon Paris</em> to study <strong>Web Development</strong>.</p>
         <br />
-        <p>As a junior developer, I am now seeking freelance missions or a full-time job to further develop my skills and work with companies on their digitalization strategy. I am particularly interested in working with companies that value personalization and customization, as I believe that a company's values should be reflected in their website.</p>
+        <p>As a junior <strong>developer</strong>, I am now seeking <strong>freelance</strong> missions or a full-time job to further develop my skills and work with companies on their <em>digitalization strategy</em>. I am particularly interested in working with companies that value personalization and customization, as I believe that a company's values should be reflected in their <em>website</em>.</p>
         <br />
         <p>I am a strong believer in teamwork and have developed this skill through my studies and previous experiences. I am also an ambitious and fast learner who enjoys taking on new challenges, as demonstrated by my career choices. If you are looking for a reliable and motivated collaborator on your next project, please do not hesitate to contact me 😊</p>
       </div>
